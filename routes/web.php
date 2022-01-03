@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [CustomerController::class, 'index'])->name('customers.index');
 Route::post('customers', [CustomerController::class, 'store'])->name('customers.store');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
