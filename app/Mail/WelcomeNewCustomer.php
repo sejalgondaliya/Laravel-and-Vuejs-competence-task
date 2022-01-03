@@ -30,6 +30,8 @@ class WelcomeNewCustomer extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.welcome-new-customer', $this->customer->toArray());
+        return $this->markdown('emails.welcome-new-customer')->with([
+            'customer' => $this->customer
+        ]);
     }
 }

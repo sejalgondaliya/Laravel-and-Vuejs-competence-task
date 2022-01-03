@@ -38,9 +38,7 @@ class CustomerController extends Controller
     {
         $data = $request->validated();
         $this->customerService->store($data);
-        Session::flash('message', 'User store successfully!');
-        Session::flash('alert-class', 'alert-success');
-        return redirect()->route('customers.index');
+        return response()->json(['save' => true]);
     }
 
     /**
