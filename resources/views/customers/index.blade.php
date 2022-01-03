@@ -16,7 +16,9 @@
 
 <body>
     <div class="container">
-
+        <div class="col-sm-12 mt-3">
+            <h1>Laravel Task 2</h1>
+        </div>
         @if(Session::has('message'))
         <div class="col-sm-12 mt-3">
             <p class="alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('message') }}</p>
@@ -51,9 +53,32 @@
                 </div>
             </form>
         </div>
-
         <div class="col-sm-12 mt-3">
-            <h1>Vue Js Task</h1>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @forelse ($customers as $customer)
+                    <tr>
+                        <th scope="row">{{$customer->id}}</th>
+                        <td>{{$customer->name}}</td>
+                        <td>{{$customer->email}}</td>
+                    </tr>
+                    @empty
+                    <tr scope="row">
+                        <th colspan="3" class="text-center">No Record Found</th>
+                    </tr>
+                    @endforelse
+                </tbody>
+            </table>
+        </div>
+        <div class="col-sm-12 mt-3">
+            <h1>Vue Js Task 4</h1>
         </div>
         <div class="col-sm-12 mt-3" id="app">
             <example-component></example-component>
